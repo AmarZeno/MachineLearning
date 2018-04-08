@@ -32,6 +32,7 @@ public class MLPopulationManager : MonoBehaviour {
             AgentObject.GetComponent<MLDNA>().R = Random.Range(0.0f, 1.0f);
             AgentObject.GetComponent<MLDNA>().G = Random.Range(0.0f, 1.0f);
             AgentObject.GetComponent<MLDNA>().B = Random.Range(0.0f, 1.0f);
+            AgentObject.GetComponent<MLDNA>().S = Random.Range(0.1f, 0.3f);
             Population.Add(AgentObject);
         }
 	}
@@ -83,12 +84,14 @@ public class MLPopulationManager : MonoBehaviour {
             offspring.GetComponent<MLDNA>().R = Random.Range(0, 10) < 5 ? DNA1.R : DNA2.R;
             offspring.GetComponent<MLDNA>().G = Random.Range(0, 10) < 5 ? DNA1.G : DNA2.G;
             offspring.GetComponent<MLDNA>().B = Random.Range(0, 10) < 5 ? DNA1.B : DNA2.B;
+            offspring.GetComponent<MLDNA>().S = Random.Range(0, 10) < 5 ? DNA1.S : DNA2.S;
         }
         else
         {
             offspring.GetComponent<MLDNA>().R = Random.Range(0.0f, 1.0f);
             offspring.GetComponent<MLDNA>().G = Random.Range(0.0f, 1.0f);
             offspring.GetComponent<MLDNA>().B = Random.Range(0.0f, 1.0f);
+            offspring.GetComponent<MLDNA>().S = Random.Range(0.1f, 0.3f);
         }
         return offspring;
     }

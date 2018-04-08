@@ -7,6 +7,7 @@ public class MLDNA : MonoBehaviour {
     // Gene for color
     public float R, G, B;
     public float TimeToDie = 0;
+    public float S;
 
     bool dead = false;
     SpriteRenderer AgentSpriteRenderer;
@@ -17,6 +18,7 @@ public class MLDNA : MonoBehaviour {
         AgentSpriteRenderer = GetComponent<SpriteRenderer>();
         AgentCollider = GetComponent<Collider2D>();
         AgentSpriteRenderer.color = new Color(R, G, B);
+        this.transform.localScale = new Vector3(S, S, S);
     }
 	
 	// Update is called once per frame

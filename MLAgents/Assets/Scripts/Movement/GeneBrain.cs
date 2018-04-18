@@ -8,6 +8,7 @@ public class GeneBrain : MonoBehaviour {
 
     public int DNALength = 1;
     public float timeAlive;
+    public float distanceTravelled;
     public GeneDNA dna;
 
     private ThirdPersonCharacter m_Character;
@@ -32,8 +33,8 @@ public class GeneBrain : MonoBehaviour {
         bool crouch = false;
         if (dna.GetGene(0) == 0) v = 1;
         else if (dna.GetGene(0) == 1) v = -1;
-        else if (dna.GetGene(0) == 2) v = -1;
-        else if (dna.GetGene(0) == 3) v = 1;
+        else if (dna.GetGene(0) == 2) h = -1;
+        else if (dna.GetGene(0) == 3) h = 1;
         else if (dna.GetGene(0) == 4) m_Jump = true;
         else if (dna.GetGene(0) == 5) crouch = true;
 
@@ -41,7 +42,10 @@ public class GeneBrain : MonoBehaviour {
         m_Character.Move(m_Move, crouch, m_Jump);
         m_Jump = false;
         if (alive)
+        {
             timeAlive += Time.deltaTime;
+            distanceTravelled = Vector3.Distance(this.transform.position, startPosition);
+        }
     }
 
     void OnCollisionEnter(Collision Obj)

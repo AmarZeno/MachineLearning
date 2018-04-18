@@ -16,9 +16,11 @@ public class GeneBrain : MonoBehaviour {
     private bool m_Jump;
     bool alive = true;
 
-	// Use this for initialization
-	void Start () {
-		
+    private Vector3 startPosition;
+
+    // Use this for initialization
+    void Start () {
+        startPosition = this.transform.position;
 	}
 	
 	// Update is called once per frame

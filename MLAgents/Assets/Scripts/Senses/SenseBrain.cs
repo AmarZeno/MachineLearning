@@ -13,6 +13,14 @@ public class SenseBrain : MonoBehaviour {
     bool alive = true;
     bool seeGround = true;
 
+    public GameObject AgentPrefab;
+    GameObject AgentInstantiated;
+
+    void OnDestroy()
+    {
+        Destroy(AgentInstantiated);
+    }
+
     void OnCollisionEnter(Collision obj)
     {
         if (obj.gameObject.tag == "dead")
@@ -34,6 +42,8 @@ public class SenseBrain : MonoBehaviour {
         dna = new GeneDNA(DNALength,3);
         timeAlive = 0;
         alive = true;
+        AgentInstantiated = Instantiate(AgentPrefab, this.transform.position, this.transform.rotation);
+        AgentInstantiated.GetComponent<UnityStandardAssets.Characters.ThirdPerson.AICharacterControl>().target = this.transform;
     }
 
     private void Update()

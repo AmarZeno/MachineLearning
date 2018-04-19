@@ -6,6 +6,7 @@ public class SenseBrain : MonoBehaviour {
 
     public int DNALength = 2;
     public float timeAlive;
+    public float timeWalking;
     public GeneDNA dna;
 
     public GameObject eyes;
@@ -17,6 +18,8 @@ public class SenseBrain : MonoBehaviour {
         if (obj.gameObject.tag == "dead")
         {
             alive = false;
+            timeAlive = 0;
+            timeWalking = 0;
         }
     }
 
@@ -56,13 +59,13 @@ public class SenseBrain : MonoBehaviour {
         float move = 0;
         if(seeGround)
         {
-            if (dna.GetGene(0) == 0) move = 1;
+            if (dna.GetGene(0) == 0) { move = 1; timeWalking += 1; }
             else if (dna.GetGene(0) == 1) turn = -90;
             else if (dna.GetGene(0) == 2) turn = 90;
         }
         else
         {
-            if (dna.GetGene(1) == 0) move = 1;
+            if (dna.GetGene(1) == 0) { move = 1; timeWalking += 1; }
             else if (dna.GetGene(1) == 1) turn = -90;
             else if (dna.GetGene(1) == 2) turn = 90;
         }

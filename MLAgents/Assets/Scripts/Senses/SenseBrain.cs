@@ -49,7 +49,7 @@ public class SenseBrain : MonoBehaviour {
             }
         }
 
-        timeAlive = PopulationManager.elapsed;
+        timeAlive = SensePopulationManager.elapsed;
 
         // read DNA
         float turn = 0;

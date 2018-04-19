@@ -17,10 +17,10 @@ public class MLPopulationManager : MonoBehaviour {
     GUIStyle guiStyle = new GUIStyle();
     void OnGUI()
     {
-        guiStyle.fontSize = 50;
-        guiStyle.normal.textColor = Color.white;
-        GUI.Label(new Rect(10, 10, 100, 20), "Generation: " + generation, guiStyle);
-        GUI.Label(new Rect(10, 65, 100, 20), "Trial Time: " + (int)elapsed, guiStyle);
+        guiStyle.fontSize = 25;
+        guiStyle.normal.textColor = Color.black;
+        GUI.Label(new Rect(10, 780, 100, 20), "Generation: " + generation, guiStyle);
+        GUI.Label(new Rect(10, 800, 100, 20), "Time Elapsed: " + (int)elapsed, guiStyle);
     }
 
 	// Use this for initialization

@@ -13,6 +13,8 @@ public class RLBrain : MonoBehaviour {
     public float numSaved = 0;
     public float numMissed = 0;
 
+    public string backwallTag = "backwallr";
+
     ANN ann;
 
     // Use this for initialization
@@ -57,18 +59,18 @@ public class RLBrain : MonoBehaviour {
                 Vector3 reflection = Vector3.Reflect(brb.velocity, hit.normal);
                 hit = Physics2D.Raycast(hit.point, reflection, 1000, layerMask);
             }
-
-            if (hit.collider != null && hit.collider.gameObject.tag == "backwall")
+            if (hit.collider != null && hit.collider.gameObject.tag == backwallTag)
             {
                 float dy = (hit.point.y - paddle.transform.position.y);
 
                 output = Run(ball.transform.position.x,
-                                    ball.transform.position.y,
-                                    brb.velocity.x, brb.velocity.y,
-                                    paddle.transform.position.x,
-                                    paddle.transform.position.y,
-                                    dy, true);
+                                ball.transform.position.y,
+                                brb.velocity.x, brb.velocity.y,
+                                paddle.transform.position.x,
+                                paddle.transform.position.y,
+                                dy, true);
                 yvel = (float)output[0];
+
             }
 
         }

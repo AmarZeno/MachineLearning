@@ -341,6 +341,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06947740781f154a8f5e9aa2e5b250e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paddle: {fileID: 82812388}
+  ball: {fileID: 505796213}
+  numSaved: 0
+  numMissed: 0
 --- !u!4 &312865971
 Transform:
   m_ObjectHideFlags: 0
